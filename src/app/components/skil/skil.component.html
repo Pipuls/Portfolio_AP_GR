@@ -1,0 +1,221 @@
+<div class="container-fluid" id="skils">
+    <div class="row">
+        <!-- Título y boton para añadir -->
+        <div class="col-sm-12 col-md-6 skilsIzq">
+            <h2 class="text-center text-primary pt-4 pb-4">Habilidades duras y blandas</h2>
+            <!-- Button trigger modal -->
+            <div class="d-flex justify-content-end me-4">
+                <button type="button" class="btn btn-primary btn-sm">
+                    <a class="nav-link" (click)="onOpenModal(null!, 'add')">
+                        <i class="fa-solid fa-file-circle-plus"></i> Nueva habilidad
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </button>
+            </div>
+            <br>
+            <!-- Notificacion sin Educaciones cargadas -->
+            <div *ngIf="skils?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">No hay habilidades!</h4>
+                    <p>No se encontró ninguna habilidad cargada en la base de datos.</p>
+                </div>
+            </div>
+            <!-- Circulos de progreso con habilidades -->
+            <div class="container" id="main-container">
+                <div class="row">
+                    <div class="col-lg-12 shadow">
+                        <table class="table text-secondary">
+                            <thead class="bg-light text-primary">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Color</th>
+                                    <th>Logo</th>
+                                    <th colspan="2">Edición</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-dark">
+                                <tr class="text-light" *ngFor="let skil of skils">
+                                    <td class="fs-5">{{ skil.nameS }}
+                                        <span class="m-1 bg-info badge rounded-pill">{{ skil.percentageS }}</span>
+                                    </td>
+                                    <td>{{ skil.colorS }}</td>
+                                    <td><img src="{{ skil.logoS }}" alt="Logo Skil"></td>
+                                    <td class="float-right btn-group btn-group-sm">
+                                        <a (click)="onOpenModal(skil, 'edit')" class="btn btn-primary tooltips"
+                                            data-placement="top" data-original-title="Edit"><i
+                                                class="fa fa-pencil"></i></a>
+                                        <a (click)="onOpenModal(skil, 'delete')" class="btn btn-danger tooltips"
+                                            data-placement="top" data-original-title="Delete"><i
+                                                class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Modal Agregar Skil-->
+                <div class="modal fade" id="addSkilsModal" role="dialog" tabindex="-1"
+                    aria-labelledby="addSkilModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addSkilModalLabel">
+                                    Agregar habilidad
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form #addForm="ngForm" (ngSubmit)="onAddSkil(addForm)">
+                                    <div class="form-group form-outline mb-4">
+                                        <label for="nameS">Nombre</label>
+                                        <input ngModel type="text" id="nameS" class="form-control"
+                                            placeholder="Nombre de la habilidad" name="nameS" required>
+                                    </div>
+                                    <div class="form-group form-outline mb-4">
+                                        <label for="labelS">Etiqueta</label>
+                                        <input ngModel type="text" id="labelS" class="form-control"
+                                            placeholder="Etiqueta de la habilidad" name="labelS" required>
+                                    </div>
+                                    <div class="form-group form-outline mb-4">
+                                        <label for="percentageS">Porcentaje</label>
+                                        <input ngModel type="number" id="percentageS" class="form-control"
+                                            placeholder="Porcentaje de conocimiento"
+                                            name="percentageS" required>
+                                            
+                                    </div>
+                                    <div class="form-group form-outline mb-4">
+                                        <label for="logoS">Logo</label>
+                                        <input ngModel type="url" id="logoS" class="form-control"
+                                            placeholder="Introduzca la URL del logo" name="logoS" required>
+                                    </div>
+                                    <div class="form-group form-outline mb-4">
+                                        <label for="colorS">Color</label>
+                                        <select ngModel class="form-select" id="colorS" aria-label="Color"name="colorS"
+                                            placeholder="Seleccione un color" required>
+                                                <option selected>Seleccione un color</option>
+                                                <option value="#FF595E" style="text-color: #FF595E">Rojo</option>
+                                                <option value="#FFCA3A" style="text-color: #FFCA3A">Amarillo</option>
+                                                <option value="#8AC926" style="text-color: #8AC926">Verde</option>
+                                                <option value="#1982C4" style="text-color: #1982C4">Azul</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="add-skil-form" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                        <button [disabled]="addForm.invalid" type="submit"
+                                            class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Editar educacion-->
+                <div class="modal fade" id="updateSkilsModal" role="dialog" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="editSkilsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editSkilsModalLabel">
+                                    Editar la habilidad {{ editSkils?.nameS }}
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form #editForm="ngForm">
+                                    <div class="form-group form-outline mb-5 mt-3">
+                                        <label class="form-label" for="titleE">Nombre</label>
+                                        <input ngModel="{{ editSkils?.nameS }}" type="text" id="nameS"
+                                            class="form-control" placeholder="Nombre de la habilidad"
+                                            name="nameS" />
+                                    </div>
+                                    <input type="hidden" ngModel="{{ editSkils?.id }}" name="id"
+                                        class="form-control" id="id" placeholder="id" />
+                                    <div class="form-group form-outline mb-5">
+                                        <label class="form-label" for="labelS">Etiqueta</label>
+                                        <input ngModel="{{ editSkils?.labelS }}" type="text" id="labelS"
+                                            class="form-control" placeholder="Nombre de la etiqueta"
+                                            name="labelS" />
+                                    </div>
+                                    <div class="form-group form-outline mb-5">
+                                        <label class="form-label" for="percentageS">Porcentaje</label><br>
+                                        <input ngModel="{{ editSkils?.percentageS }}" type="number" id="percentageS"
+                                            class="form-control"
+                                            placeholder="Porcentaje de conocimiento" name="percentageS" />
+                                            
+                                            
+                                    </div>
+                                    <div class="form-group form-outline mb-5">
+                                        <label class="form-label" for="logoS">Logo</label>
+                                        <input ngModel="{{ editSkils?.logoS }}" type="url" id="logoS"
+                                            class="form-control" placeholder="Introduzca la URL del logo"
+                                            name="logoS" />
+                                    </div>
+                                    <div class="form-group form-outline mb-5">
+                                        <label for="colorS">Color</label>
+                                        <select ngModel class="form-select" id="colorS" aria-label="Color"name="colorS" 
+                                        placeholder="Seleccione un color" required>
+                                            <option value="#FF595E" style="color: #FF595E">Rojo</option>
+                                            <option value="#FFCA3A" style="color: #FFCA3A">Amarillo</option>
+                                            <option value="#8AC926" style="color: #8AC926">Verde</option>
+                                            <option value="#1982C4" style="color: #1982C4">Azul</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="edit-education-form" type="button" data-dismiss="modal"
+                                    class="btn btn-secondary">
+                                    Cerrar
+                                </button>
+                                <button (click)="onUpdateSkil(editForm.value)" data-dismiss="modal" type="submit"
+                                    class="btn btn-primary">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal borrar educacion-->
+                <div class="modal fade" id="deleteSkilsModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteSkilModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteSkilModalLabel">
+                                    Borrar educación
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-dark">
+                                    Esta seguro que desea borrar la educación
+                                    {{ deleteSkil?.nameS }}?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    No
+                                </button>
+                                <button (click)="onDeleteSkil(deleteSkil.id)" data-dismiss="modal"
+                                    class="btn btn-danger">
+                                    Si
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Imagen Derecha-->
+        <div class="col-sm-12 col-md-6 skilsDer">
+        </div>
+    </div>
+</div>

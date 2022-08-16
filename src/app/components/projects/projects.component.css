@@ -1,0 +1,18 @@
+p {
+    text-align: justify;
+}
+
+a{
+    text-decoration: none;
+}
+
+section{
+    background-image: url("../../../assets/images/project-bg.svg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.tarjetafsj{
+    margin-bottom: 50px;
+}

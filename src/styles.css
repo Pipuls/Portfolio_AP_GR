@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    scroll-behavior: smooth;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+body{
+    background-image: url('../src/assets/images/portfoliofondo.jpg');
+    background-size: 10%;
+    background-repeat: repeat;
+}
+
+
+div {
+    
+    background-color: transparent;
+    font-family: Ubuntu, Poppins;
+    color: rgb(147, 178, 247);
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+a {
+    color: rgb(147, 178, 247);
+    font-weight: 500;
+}
+
+a:hover {
+   color: rgb(252, 56, 56);
+}

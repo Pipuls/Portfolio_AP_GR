@@ -1,0 +1,27 @@
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.colorfondo {
+    background-color: #0a121d;
+}
+.piedepagina{
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+    
+}
+.fondofooter{
+    width: 100%;
+    padding: 0;
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    color: #fff;
+}
