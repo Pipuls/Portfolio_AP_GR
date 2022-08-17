@@ -1,1 +1,77 @@
-<p>header works!</p>
+<div class="container-fluid" id="header">
+    <div class="row">
+        <div class="bgimage col-12">
+            <img class="imgBg" src="../../../assets/images/fondoskyLG.png" alt="ImgFondo" />
+        </div>
+        <div class="profileContainer main-container col-12">
+            <table class="">
+                <tbody class="table align-middle text-center" *ngFor="let profile of profiles">
+                    <tr class="table col-12">
+                        <td class="col-4 col-sm-12 col-md-6">
+                            <img class="profilePic" src="{{profile.imgUrl}}" alt="avatar">
+                            <!-- Button trigger modal -->
+                            <div class="d-flex justify-content-end me-4">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <a class="nav-link" (click)="onOpenModal(null!, 'editImg')">
+                                        <i class="fa-solid fa-images-user"></i>
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </button>
+                            </div>
+                        </td>
+                        <td class="col-4 col-sm-12 col-md-6 text-justity-right">
+                            <h1>{{profile.name}} {{profile.lastname}}</h1>
+                            <br>
+                            <h2> {{profile.profession1}}</h2>
+                            <br>
+                            <h2>{{profile.profession2}}</h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Edit Modal -->
+            <div class="modal fade" id="editImgProfileModal" tabindex="-1" role="dialog"
+                aria-labelledby="profileEditImgModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileEditImgModalLabel">Editar la imagen de perfil de
+                                {{editProfile?.name}} {{editProfile?.lastname}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form #editImgForm="ngForm">
+                                <div class="form-group">
+                                    <label for="imgUrl">Imagen</label>
+                                    <input type="text" ngModel="{{editProfile?.imgUrl}}" name="imgUrl"
+                                        class="form-control" id="imgUrl" aria-describedby="imagenAvatar"
+                                        placeholder="Ingrese la URL de la imagen de perfil">
+                                </div>
+                                <input type="hidden" ngModel="{{editProfile?.id}}" name="id" class="form-control"
+                                    id="id" placeholder="id">
+                                <input type="hidden" ngModel="{{editProfile?.name}}" name="name" class="form-control"
+                                    id="name" placeholder="name">
+                                <input type="hidden" ngModel="{{editProfile?.lastname}}" name="lastname"
+                                    class="form-control" id="lastname" placeholder="lastname">
+                                <input type="hidden" ngModel="{{editProfile?.profession1}}" name="profession1"
+                                    class="form-control" id="profession1" placeholder="profession1">
+                                <input type="hidden" ngModel="{{editProfile?.profession2}}" name="profession2"
+                                    class="form-control" id="profession2" placeholder="profession2">
+                                <input type="hidden" ngModel="{{editProfile?.textAboutMe}}" name="textAboutMe"
+                                    class="form-control" id="textAboutMe" placeholder="textAboutMe">
+                                <div class="modal-footer">
+                                    <button type="button" id="" data-dismiss="modal"
+                                        class="btn btn-info">Cerrar</button>
+                                    <button (click)="onUpdateProfile(editImgForm.value)" data-dismiss="modal"
+                                        class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

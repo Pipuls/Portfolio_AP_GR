@@ -36,7 +36,18 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({}),
+    NgCircleProgressModule.forRoot({
+      radius:50,
+      outerStrokeWidth:5,
+      innerStrokeWidth:3,
+      innerStrokeColor:"#f8b6a3",
+      animation:true,
+      animationDuration:1500,
+      responsive:true,
+      showImage:true,
+      imageHeight:40,
+      imageWidth:40
+    }),
     HttpClientModule,
     FormsModule
   ],

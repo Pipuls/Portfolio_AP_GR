@@ -22,35 +22,17 @@
             </div>
             <!-- Circulos de progreso con habilidades -->
             <div class="container" id="main-container">
-                <div class="row">
-                    <div class="col-lg-12 shadow">
-                        <table class="table text-secondary">
-                            <thead class="bg-light text-primary">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Color</th>
-                                    <th>Logo</th>
-                                    <th colspan="2">Edición</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-dark">
-                                <tr class="text-light" *ngFor="let skil of skils">
-                                    <td class="fs-5">{{ skil.nameS }}
-                                        <span class="m-1 bg-info badge rounded-pill">{{ skil.percentageS }}</span>
-                                    </td>
-                                    <td>{{ skil.colorS }}</td>
-                                    <td><img src="{{ skil.logoS }}" alt="Logo Skil"></td>
-                                    <td class="float-right btn-group btn-group-sm">
-                                        <a (click)="onOpenModal(skil, 'edit')" class="btn btn-primary tooltips"
-                                            data-placement="top" data-original-title="Edit"><i
-                                                class="fa fa-pencil"></i></a>
-                                        <a (click)="onOpenModal(skil, 'delete')" class="btn btn-danger tooltips"
-                                            data-placement="top" data-original-title="Delete"><i
-                                                class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="row" *ngFor="let skil of skils">
+                    <div class="text-center col-sm-6 col-md-6 col-lg-6 col-xl-3 p-2 mt-5">
+                        <label class="align-self-center">{{ skil.nameS }}</label> <br>
+                        <div class="float-right btn-group btn-group-sm m-2">
+                            <a (click)="onOpenModal(skil, 'edit')" class="btn btn-primary tooltips" data-placement="top"
+                                data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                            <a (click)="onOpenModal(skil, 'delete')" class="btn btn-danger tooltips"
+                                data-placement="top" data-original-title="Delete"><i class="fa fa-trash"></i></a>
+                        </div>
+                        <circle-progress [percent]="skil.percentageS" [outerStrokeColor]="skil.colorS"
+                            [imageSrc]="skil.logoS"></circle-progress>
                     </div>
                 </div>
                 <!-- Modal Agregar Skil-->
@@ -79,11 +61,12 @@
                                             placeholder="Etiqueta de la habilidad" name="labelS" required>
                                     </div>
                                     <div class="form-group form-outline mb-4">
-                                        <label for="percentageS">Porcentaje</label>
-                                        <input ngModel type="number" id="percentageS" class="form-control"
-                                            placeholder="Porcentaje de conocimiento"
-                                            name="percentageS" required>
-                                            
+                                        <label for="percentageS" class="form-label">Porcentaje</label>
+                                        <input ngModel type="range" class="form-range" min="0" max="100"
+                                            id="percentageS" placeholder="Porcentaje de conocimiento" name="percentageS"
+                                            required>
+
+
                                     </div>
                                     <div class="form-group form-outline mb-4">
                                         <label for="logoS">Logo</label>
@@ -92,13 +75,13 @@
                                     </div>
                                     <div class="form-group form-outline mb-4">
                                         <label for="colorS">Color</label>
-                                        <select ngModel class="form-select" id="colorS" aria-label="Color"name="colorS"
+                                        <select ngModel class="form-select" id="colorS" aria-label="Color" name="colorS"
                                             placeholder="Seleccione un color" required>
-                                                <option selected>Seleccione un color</option>
-                                                <option value="#FF595E" style="text-color: #FF595E">Rojo</option>
-                                                <option value="#FFCA3A" style="text-color: #FFCA3A">Amarillo</option>
-                                                <option value="#8AC926" style="text-color: #8AC926">Verde</option>
-                                                <option value="#1982C4" style="text-color: #1982C4">Azul</option>
+                                            <option selected>Seleccione un color</option>
+                                            <option value="#FF595E" style="text-color: #FF595E">Rojo</option>
+                                            <option value="#FFCA3A" style="text-color: #FFCA3A">Amarillo</option>
+                                            <option value="#8AC926" style="text-color: #8AC926">Verde</option>
+                                            <option value="#1982C4" style="text-color: #1982C4">Azul</option>
                                         </select>
                                     </div>
                                     <div class="modal-footer">
@@ -130,24 +113,20 @@
                                     <div class="form-group form-outline mb-5 mt-3">
                                         <label class="form-label" for="titleE">Nombre</label>
                                         <input ngModel="{{ editSkils?.nameS }}" type="text" id="nameS"
-                                            class="form-control" placeholder="Nombre de la habilidad"
-                                            name="nameS" />
+                                            class="form-control" placeholder="Nombre de la habilidad" name="nameS" />
                                     </div>
-                                    <input type="hidden" ngModel="{{ editSkils?.id }}" name="id"
-                                        class="form-control" id="id" placeholder="id" />
+                                    <input type="hidden" ngModel="{{ editSkils?.id }}" name="id" class="form-control"
+                                        id="id" placeholder="id" />
                                     <div class="form-group form-outline mb-5">
                                         <label class="form-label" for="labelS">Etiqueta</label>
                                         <input ngModel="{{ editSkils?.labelS }}" type="text" id="labelS"
-                                            class="form-control" placeholder="Nombre de la etiqueta"
-                                            name="labelS" />
+                                            class="form-control" placeholder="Nombre de la etiqueta" name="labelS" />
                                     </div>
                                     <div class="form-group form-outline mb-5">
                                         <label class="form-label" for="percentageS">Porcentaje</label><br>
-                                        <input ngModel="{{ editSkils?.percentageS }}" type="number" id="percentageS"
-                                            class="form-control"
-                                            placeholder="Porcentaje de conocimiento" name="percentageS" />
-                                            
-                                            
+                                        <input ngModel="{{ editSkils?.percentageS }}" type="range" id="percentageS"
+                                            class="form-range" placeholder="Porcentaje de conocimiento" min="0"
+                                            max="100" name="percentageS" />
                                     </div>
                                     <div class="form-group form-outline mb-5">
                                         <label class="form-label" for="logoS">Logo</label>
@@ -157,8 +136,8 @@
                                     </div>
                                     <div class="form-group form-outline mb-5">
                                         <label for="colorS">Color</label>
-                                        <select ngModel class="form-select" id="colorS" aria-label="Color"name="colorS" 
-                                        placeholder="Seleccione un color" required>
+                                        <select ngModel class="form-select" id="colorS" aria-label="Color" name="colorS"
+                                            placeholder="Seleccione un color" required>
                                             <option value="#FF595E" style="color: #FF595E">Rojo</option>
                                             <option value="#FFCA3A" style="color: #FFCA3A">Amarillo</option>
                                             <option value="#8AC926" style="color: #8AC926">Verde</option>
