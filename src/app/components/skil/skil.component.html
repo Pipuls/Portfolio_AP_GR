@@ -1,4 +1,4 @@
-<div class="container-fluid" id="skils">
+<div class="container-fluid mb-5" id="skils">
     <div class="row">
         <!-- Título y boton para añadir -->
         <div class="col-sm-12 col-md-6 skilsIzq">
@@ -50,31 +50,31 @@
                             </div>
                             <div class="modal-body">
                                 <form #addForm="ngForm" (ngSubmit)="onAddSkil(addForm)">
-                                    <div class="form-group form-outline mb-4">
-                                        <label for="nameS">Nombre</label>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="nameS">Nombre</label>
                                         <input ngModel type="text" id="nameS" class="form-control"
                                             placeholder="Nombre de la habilidad" name="nameS" required>
                                     </div>
-                                    <div class="form-group form-outline mb-4">
-                                        <label for="labelS">Etiqueta</label>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="labelS">Etiqueta</label>
                                         <input ngModel type="text" id="labelS" class="form-control"
                                             placeholder="Etiqueta de la habilidad" name="labelS" required>
                                     </div>
-                                    <div class="form-group form-outline mb-4">
-                                        <label for="percentageS" class="form-label">Porcentaje</label>
-                                        <input ngModel type="range" class="form-range" min="0" max="100"
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="percentageS">Porcentaje</label>
+                                        <input ngModel type="number" class="form-control" min="0" max="100"
                                             id="percentageS" placeholder="Porcentaje de conocimiento" name="percentageS"
                                             required>
 
 
                                     </div>
-                                    <div class="form-group form-outline mb-4">
-                                        <label for="logoS">Logo</label>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="logoS">Logo</label>
                                         <input ngModel type="url" id="logoS" class="form-control"
                                             placeholder="Introduzca la URL del logo" name="logoS" required>
                                     </div>
-                                    <div class="form-group form-outline mb-4">
-                                        <label for="colorS">Color</label>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="colorS">Color</label>
                                         <select ngModel class="form-select" id="colorS" aria-label="Color" name="colorS"
                                             placeholder="Seleccione un color" required>
                                             <option selected>Seleccione un color</option>

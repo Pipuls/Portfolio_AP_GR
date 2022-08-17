@@ -8,16 +8,18 @@
                 <tbody class="table align-middle text-center" *ngFor="let profile of profiles">
                     <tr class="table col-12">
                         <td class="col-4 col-sm-12 col-md-6">
-                            <img class="profilePic" src="{{profile.imgUrl}}" alt="avatar">
                             <!-- Button trigger modal -->
-                            <div class="d-flex justify-content-end me-4">
-                                <button type="button" class="btn btn-primary btn-sm">
-                                    <a class="nav-link" (click)="onOpenModal(null!, 'editImg')">
-                                        <i class="fa-solid fa-images-user"></i>
+                            <div class="d-flex justify-content-end">
+                                
+                                    <a class="nav-link btn btn-success btn-lg fs-3" (click)="onOpenModal(null!, 'editImg')">
+                                        <i class="fa-solid fa-pen-to-square"></i>
                                         <span class="sr-only">(current)</span>
                                     </a>
-                                </button>
+                                
                             </div>
+                            <img class="profilePic" src="{{profile.imgUrl}}" alt="avatar">
+                            
+                            
                         </td>
                         <td class="col-4 col-sm-12 col-md-6 text-justity-right">
                             <h1>{{profile.name}} {{profile.lastname}}</h1>
@@ -59,8 +61,6 @@
                                     class="form-control" id="profession1" placeholder="profession1">
                                 <input type="hidden" ngModel="{{editProfile?.profession2}}" name="profession2"
                                     class="form-control" id="profession2" placeholder="profession2">
-                                <input type="hidden" ngModel="{{editProfile?.textAboutMe}}" name="textAboutMe"
-                                    class="form-control" id="textAboutMe" placeholder="textAboutMe">
                                 <div class="modal-footer">
                                     <button type="button" id="" data-dismiss="modal"
                                         class="btn btn-info">Cerrar</button>

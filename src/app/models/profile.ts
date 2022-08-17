@@ -5,5 +5,4 @@ export interface Profile{
     imgUrl: string;
     profession1: string;
     profession2: string;
-    textAboutMe: string;
 } 
