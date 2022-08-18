@@ -1,9 +1,9 @@
 <div class="container-fluid" id="education">
   <div class="row">
     <!--Imagen izquierda-->
-    <div class="col-sm-12 col-md-6 eduIzq"></div>
+    <div class="col-sm-12 col-lg-6 eduIzq"></div>
 
-    <div class="col-sm-12 col-md-6 eduDer">
+    <div class="col-sm-12 col-lg-6 eduDer">
       <!-- Título y boton para añadir -->
       <h2 class="text-center text-primary pt-4 pb-4">Estudios Realizados</h2>
       <!-- Button trigger modal -->
@@ -39,27 +39,30 @@
                     <em class="text-info">{{ education.placeE }}</em>
                   </p>
                 </div>
-                <div class="d-flex m-auto card-footer bg-dark border-light text-info">
-                  {{ education.yearE }}
-
-                  <div class="d-flex m-auto text-right btn-group btn-group-sm">
-                    <a (click)="onOpenModal(education, 'edit')" class="btn btn-primary tooltips"
-                      data-placement="top" data-original-title="Edit">
+                <div class="card-footer bg-dark border-light text-info">
+                  <div class="row">
+                  <div class="botonesEdicion btn-group btn-group-sm col-4">
+                    <a (click)="onOpenModal(education, 'edit')" class="btn btn-success tooltips" data-placement="top"
+                      data-original-title="Edit">
                       <i class="fa fa-pencil"></i>
                     </a>
-                    <a (click)="onOpenModal(education, 'delete')" class="btn btn-danger tooltips"
-                      data-placement="top" data-original-title="Delete">
+                    <a (click)="onOpenModal(education, 'delete')" class="btn btn-danger tooltips" data-placement="top"
+                      data-original-title="Delete">
                       <i class="fa fa-trash"></i>
                     </a>
                   </div>
+                  <div class="col-8 yearbottom text-info text-end align-middle">
+                    {{ education.yearE }}
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Modal Agregar educacion-->
-        <div class="modal fade" id="addEducationModal" role="dialog" tabindex="-1" 
-        aria-labelledby="addEducationModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addEducationModal" role="dialog" tabindex="-1"
+          aria-labelledby="addEducationModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -98,10 +101,10 @@
                       placeholder="Ingrese la URL del logo de la institución" required>
                   </div>
                   <div class="modal-footer">
-                    <button id="add-education-form" type="button" class="btn btn-info" data-dismiss="modal">
+                    <button id="add-education-form" type="button" class="btn btn-warning" data-dismiss="modal">
                       Cerrar
                     </button>
-                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
+                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-info">
                       Guardar
                     </button>
                   </div>
@@ -155,11 +158,11 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <button id="edit-education-form" type="button" data-dismiss="modal" class="btn btn-info">
+                <button id="edit-education-form" type="button" data-dismiss="modal" class="btn btn-warning">
                   Cerrar
                 </button>
                 <button (click)="onUpdateEducation(editForm.value)" data-dismiss="modal" type="submit"
-                  class="btn btn-primary">
+                  class="btn btn-info">
                   Guardar
                 </button>
               </div>
@@ -186,7 +189,7 @@
                 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-succes" data-dismiss="modal">
+                <button type="button" class="btn btn-info" data-dismiss="modal">
                   No
                 </button>
                 <button (click)="onDeleteEducation(deleteEducation!.id)" data-dismiss="modal" class="btn btn-danger">

@@ -26,9 +26,10 @@ a {
     color: rgb(230, 235, 245);
     font-weight: 500;
  }
+
  
 
-@media (max-width: 767px){
+@media (max-width: 992px){
     .expDer {
         min-height: 700px; 
         object-position: end;

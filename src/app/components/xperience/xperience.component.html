@@ -1,7 +1,7 @@
 <div class="container-fluid" id="xperience">
     <div class="row" id="exp">
-        <div class="col-sm-12 col-md-6 expIzq">
-        <!-- Título y boton para añadir -->
+        <div class="col-sm-12 col-lg-6 expIzq">
+            <!-- Título y boton para añadir -->
             <h2 class="text-center text-primary pt-4 pb-4">Experiencia Laboral</h2>
             <!-- Button trigger modal -->
             <div class="d-flex justify-content-end me-4">
@@ -13,7 +13,7 @@
                 </button>
             </div>
             <br>
-            <!-- Notificacion sin Educaciones cargadas -->
+            <!-- Notificacion sin Experiencias cargadas -->
             <div *ngIf="xperiences?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
                 <div class="alert alert-info" role="alert">
                     <h4 class="alert-heading">No hay experiencias!</h4>
@@ -24,36 +24,37 @@
             <div class="container" id="main-container">
                 <div class="row">
                     <div class="col-lg-12 shadow">
-                        <table class="table text-primary">
-                            <thead class="bg-light text-primary">
+                        <table class="table align-middle table-responsive">
+                            <thead class="bg-light ">
                                 <tr>
                                     <th>Puesto</th>
                                     <th>Empresa</th>
                                     <th>Descripción</th>
-                                    <th colspan="2">Edición</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-dark">
+                            <tbody class="bg-dark text-primary">
                                 <tr class="text-light" *ngFor="let xperience of xperiences">
                                     <td class="fs-5">{{ xperience.positionX }}
-                                        <span class="m-1 bg-info badge rounded-pill">{{ xperience.yearX }}</span>
+                                        <br>
+                                        <span class="m-2 p-2 bg-info badge rounded-pill">{{ xperience.yearX }}</span>
+                                        <br>
+                                        <div class="btn-group">
+                                            <a (click)="onOpenModal(xperience, 'edit')" class="btn btn-success tooltips"
+                                                data-placement="top" data-original-title="Edit"><i
+                                                    class="fa fa-pencil"></i></a>
+                                            <a (click)="onOpenModal(xperience, 'delete')"
+                                                class="btn btn-danger tooltips" data-placement="top"
+                                                data-original-title="Delete"><i class="fa fa-trash"></i></a>
+                                        </div>
                                     </td>
                                     <td>{{ xperience.companyX }}</td>
                                     <td>{{ xperience.descriptionX }}</td>
-                                    <td class="float-right btn-group btn-group-sm">
-                                        <a (click)="onOpenModal(xperience, 'edit')" class="btn btn-primary tooltips"
-                                            data-placement="top" data-original-title="Edit"><i
-                                                class="fa fa-pencil"></i></a>
-                                        <a (click)="onOpenModal(xperience, 'delete')" class="btn btn-danger tooltips"
-                                            data-placement="top" data-original-title="Delete"><i
-                                                class="fa fa-trash"></i></a>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- Add Employee Modal -->
+                <!-- Agregar Experiencias Modal -->
                 <div class="modal fade" id="addXperienceModal" tabindex="-1" role="dialog"
                     aria-labelledby="addXperienceModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -90,17 +91,17 @@
                                             required></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" id="add-xperience-form" class="btn btn-info"
+                                        <button type="button" id="add-xperience-form" class="btn btn-warning"
                                             data-dismiss="modal">Cerrar</button>
                                         <button [disabled]="addForm.invalid" type="submit"
-                                            class="btn btn-primary">Guardar</button>
+                                            class="btn btn-info">Guardar</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Edit Modal -->
+                <!-- Editar experiencia Modal -->
                 <div class="modal fade" id="updateXperienceModal" tabindex="-1" role="dialog"
                     aria-labelledby="xperienceEditModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -135,22 +136,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="descriptionX">Descripción</label>
-                                        <textarea type="text" ngModel="{{editXperience?.descriptionX}}" name="descriptionX"
-                                            class="form-control" id="descriptionX"
+                                        <textarea type="text" ngModel="{{editXperience?.descriptionX}}"
+                                            name="descriptionX" class="form-control" id="descriptionX"
                                             placeholder="Descripción del trabajo desempeñado"></textarea>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer ">
                                         <button type="button" id="" data-dismiss="modal"
-                                            class="btn btn-info">Cerrar</button>
+                                            class="btn btn-warning">Cerrar</button>
                                         <button (click)="onUpdateXperience(editForm.value)" data-dismiss="modal"
-                                            class="btn btn-primary">Guardar</button>
+                                            class="btn btn-info">Guardar</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Delete Modal -->
+                <!-- Borrar experiencias Modal -->
                 <div class="modal fade" id="deleteXperienceModal" tabindex="-1" role="dialog"
                     aria-labelledby="deleteXperienceModelLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -164,7 +165,7 @@
                             <div class="modal-body">
                                 <p>Está seguro que desea borrar la experiencia {{deleteXperience?.positionX}}?</p>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
                                     <button (click)="onDeleteXperience(deleteXperience.id)" class="btn btn-danger"
                                         data-dismiss="modal">Si</button>
                                 </div>
@@ -174,7 +175,7 @@
                 </div>
             </div>
         </div>
-<!--imagen izquierda-->
-        <div class="col-sm-12 col-md-6 expDer"></div>
+        <!--imagen izquierda-->
+        <div class="col-sm-12 col-lg-6 expDer"></div>
     </div>
 </div>

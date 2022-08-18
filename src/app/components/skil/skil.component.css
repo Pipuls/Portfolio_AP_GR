@@ -25,19 +25,36 @@ label {
     text-align: center;
     color: rgb(128, 172, 238);
     font-weight:bold; 
-    font-size: 2.5vw;
 }
 #circles {
     padding: 2rem 2rem;
 }
+label {
+    text-size-adjust: inherit;
+}
+.container{
+    margin: 0;
+    overflow:hidden;
+    text-align: center;
+    
+}
+.containerCircles{
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;  
+}
+.circlesSkils{
+  margin: 0;
+  padding: 0;
+   }
+
 a {
     color: rgb(230, 235, 245);
     font-weight: 500;
  }
- 
-@media screen and (min-width: 750px){
+ .modal{
+    text-align:justify;
+ }
 
-    label {
-    font-size: 1vw;
-}
-}
+
+
