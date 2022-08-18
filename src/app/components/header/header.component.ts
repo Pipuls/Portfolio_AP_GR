@@ -22,6 +22,7 @@ public editProfile!: Profile;
     this.profileService.getProfiles().subscribe(
       (response: Profile[]) => {
         this.profiles = response;
+        console.log(this.profiles);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

@@ -1,26 +1,25 @@
 h1 {
     color: white;
-    font-size: 5vw;
+    font-size: 150px;
+    font-weight: 400;
     font-family: 'Bebas Neue', cursive;
     text-shadow: 5px 5px 5px rgba(120, 201, 248, 0.397);
-    text-align: right;
 }
 h2 {
     font-family: Ubuntu;
     color: rgb(25, 65, 175);
-    font-size: 2vw;
+    font-size: 1.5rem;
     font-weight: bold;
+    line-height: 2.5rem;
     text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
-    text-align: right;
 }
-table{
+.text-box{
     position: absolute;
     right: 15vw;
     top: 15vw;
     background-color: transparent;
-    
 }
-table h1{
+.text-box h1{
     padding-top: 1vh;
     font-size: 7vw;
     color: transparent;
@@ -37,6 +36,11 @@ table h1{
     }
 }
 
+.text-box h2{
+    font-size: 2.8vw;
+    line-height: 1.2;
+}
+
 .imgBg{
     width: 100%;
     z-index: -10;
@@ -44,62 +48,67 @@ table h1{
 }
 
 .profilePic{
-    z-index: 1;
-    width: 50%;
+    z-index: 10;
+    width: 35%;
     margin-left: calc(1em + 10%);
-    
+    margin-top: -90%;
 }
 .nombreyTitulo{
     z-index: 15;
     text-align: right;
 
 }
-@media (min-width:575), (max-width: 767px){
-    .profilePic{
- 
-        position: relative;
-        height: auto;
-
-        margin-top: 10vw;
-        margin-left: 20%;
-    }
-
-    h1{
-        margin-top: 5vw;
-        font-size: 10px;
-    }
-
-    h2{
-        padding: 0;
-        margin-top: -1vw;
-        font-size: 2.5vw;
-        
-    }
+.btnEditarImg{
+    margin-top: -60%;
+    margin-left: calc(1em + 40%);
+    position: absolute;
+    z-index: 15;
+    font-size: 0.5rem; 
 }
 
+@media (min-width: 575px) and (max-width:767px){
+.profilePic{
+    width: 30%;
+    height: auto;
+    position: relative;
+    margin-top: -90%;
+}
+.text-box{
+    right: 15vw;
+    top: 28vw;
+}
+.text-box h1{
+    padding-top: 1vh;
+    
+}
+
+h2 {
+    line-height: .0075rem;
+}
+.btnEditarImg{
+    margin-top: -55%;
+    margin-left: calc(1em + 40%);
+}
+
+}
 @media (max-width:574px){
    
     .profilePic{
-        width: 90%;
+        width: 50%;
         position: relative;
         height: auto;
         align-items: center;
-        margin-top: 10vw;
+        margin-top: 3vw;
         margin-left: 20%;
-    }
-
-    h1{
-        margin-top: 10vw;
-    }
-
-    h2{
-        padding: 0;
-        margin-top: -5vw;
-        font-size: 3vw;
         
     }
-
-
-
+    .text-box{
+        top: 28vw;
+        right: calc(20vw + 12%);
+    }
+    .btnEditarImg{
+        margin-top: 10%;
+        margin-left: calc(1em + 60%);
+    }
 
 }

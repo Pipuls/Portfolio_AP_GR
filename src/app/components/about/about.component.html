@@ -21,11 +21,13 @@
                             <tbody>
                                 <tr>
                                     <td>
+                                        <!-- Button editar descripcion -->
                                         <div class="text-end m-2">
                                             <a (click)="onOpenModal(about, 'editAbout')"
                                                 class="btn btn-success tooltips" data-placement="top"
                                                 data-original-title="Edit"><i class="fa fa-pencil"></i></a>
                                         </div>
+                                        <!-- caja de texto con la descripcion -->
                                         <div class="text-box">
                                             <p class="parrafo lh-sm fs-4" data-aos="zoom-in" data-aos-duration="5000">{{
                                                 about.textAboutMe }}.</p>
