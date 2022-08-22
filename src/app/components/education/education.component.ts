@@ -14,8 +14,7 @@ export class EducationComponent implements OnInit {
   public educations!: Education[];
   public editEducation!: Education;
   public deleteEducation!: Education;
-  roles!: string[];
-  isAdmin = false
+  isLogged = false;
 
   constructor(
     private educationService: EducationService,
@@ -23,12 +22,11 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEducations();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol =>{
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   public getEducations(): void {
