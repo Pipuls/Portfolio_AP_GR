@@ -5,7 +5,7 @@
             <h2 class="text-center text-primary pt-4 pb-4">Habilidades duras y blandas</h2>
             <!-- Button trigger modal -->
             <div class="d-flex justify-content-end me-4">
-                <button *ngIf="isLogged" type="button" class="btn btn-success btn-sm">
+                <button *ngIf="isAdmin" type="button" class="btn btn-success btn-sm">
                     <a class="nav-link" (click)="onOpenModal(null!, 'add')">
                         <i class="fa-solid fa-file-circle-plus"></i> Nueva habilidad
                         <span class="sr-only">(current)</span>
@@ -25,7 +25,7 @@
                 <div class="containerCircles col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let skil of skils">
                             <div class="circlesSkils">
                             <label>{{ skil.nameS }}</label> <br>
-                            <div *ngIf="isLogged" class="float-right btn-group btn-group-sm ">
+                            <div *ngIf="isAdmin" class="float-right btn-group btn-group-sm ">
                                 <a (click)="onOpenModal(skil, 'edit')" class="btn btn-primary tooltips"
                                     data-placement="top" data-original-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <a (click)="onOpenModal(skil, 'delete')" class="btn btn-danger tooltips"
