@@ -18,7 +18,7 @@ export class TokenService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-  public getToken(): string {
+  public getToken(): string | null {
     return sessionStorage.getItem(TOKEN_KEY)!;
   }
 
@@ -27,8 +27,8 @@ export class TokenService {
     window.sessionStorage.setItem(USERNAME_KEY, userName);
   }
 
-  public getUserName(): string {
-    return sessionStorage.getItem(USERNAME_KEY)!;
+  public getUserName(): string | null {
+    return sessionStorage.getItem(USERNAME_KEY);
   }
 
   public setAuthorities(authorities: string[]): void {

@@ -19,7 +19,7 @@
                         <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                             <!--ingreso de usuario -->
                             <div class="form-floating mb-4">
-                                <input type="user" id="userName" name="userName" class="form-control form-control-lg"
+                                <input type="text" id="userName" name="userName" class="form-control form-control-lg"
                                     [(ngModel)]="userName" required />
                                 <label class="form-label text-primary" for="userName">Nombre de usuario</label>
                             </div>
@@ -41,12 +41,10 @@
                             </div-->
 
                             <!-- Submit button -->
-                            <div class="form-control">
                                 <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="!f.valid">
                                     <i class="fa-solid fa-right-to-bracket"></i>
                                      Iniciar sesión
                                 </button>
-                            </div>
                         </form>
                         <div *ngIf="f.submitted && isLogginFail" class="alert alert-danger mt-3">
                             Error de autenticación: {{errMsg}}
