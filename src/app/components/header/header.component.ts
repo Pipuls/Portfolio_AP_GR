@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import { TokenService } from 'src/app/services/security/token.service';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +12,19 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class HeaderComponent implements OnInit {
 public profiles!: Profile[];
 public editProfile!: Profile;
+isLogged = false;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(
+    private profileService: ProfileService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getProfiles();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   getProfiles(): void {

@@ -23,9 +23,9 @@
                                     <td>
                                         <!-- Button editar descripcion -->
                                         <div class="text-end m-2">
-                                            <a (click)="onOpenModal(about, 'editAbout')"
-                                                class="btn btn-success tooltips" data-placement="top"
-                                                data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a *ngIf="isLogged" (click)="onOpenModal(about, 'editAbout')"
+                                                class="btn btn-primary tooltips p-3" data-placement="top"
+                                                data-original-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
                                         </div>
                                         <!-- caja de texto con la descripcion -->
                                         <div class="text-box">
@@ -70,7 +70,7 @@
                                     Cerrar
                                 </button>
                                 <button (click)="onUpdateAbout(editAboutForm.value)" data-dismiss="modal" type="submit"
-                                    class="btn btn-info">
+                                    class="btn btn-primary">
                                     Guardar
                                 </button>
                             </div>

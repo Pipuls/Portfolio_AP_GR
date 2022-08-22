@@ -8,7 +8,7 @@
       <h2 class="text-center text-primary pt-4 pb-4">Estudios Realizados</h2>
       <!-- Button trigger modal -->
       <div class="d-flex justify-content-end me-4">
-        <button type="button" class="btn btn-primary btn-sm">
+        <button type="button" class="btn btn-success btn-sm"  *ngIf="isLogged">
           <a class="nav-link" (click)="onOpenModal(null!, 'add')">
             <i class="fa-solid fa-file-circle-plus"></i> Agregar estudio
             <span class="sr-only">(current)</span>
@@ -41,12 +41,12 @@
                 </div>
                 <div class="card-footer bg-dark border-light text-info">
                   <div class="row">
-                  <div class="botonesEdicion btn-group btn-group-sm col-2">
-                    <a (click)="onOpenModal(education, 'edit')" class="btn btn-success tooltips" data-placement="top"
+                  <div class="botonesEdicion btn-group btn-group-sm col-2"  *ngIf="isLogged">
+                    <a (click)="onOpenModal(education, 'edit')" class="btn btn-primary btn-sm tooltips" data-placement="top"
                       data-original-title="Edit">
-                      <i class="fa fa-pencil"></i>
+                      <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a (click)="onOpenModal(education, 'delete')" class="btn btn-danger tooltips" data-placement="top"
+                    <a (click)="onOpenModal(education, 'delete')" class="btn btn-danger btn-sm tooltips" data-placement="top"
                       data-original-title="Delete">
                       <i class="fa fa-trash"></i>
                     </a>
@@ -104,7 +104,7 @@
                     <button id="add-education-form" type="button" class="btn btn-warning" data-dismiss="modal">
                       Cerrar
                     </button>
-                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-info">
+                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
                       Guardar
                     </button>
                   </div>
@@ -162,7 +162,7 @@
                   Cerrar
                 </button>
                 <button (click)="onUpdateEducation(editForm.value)" data-dismiss="modal" type="submit"
-                  class="btn btn-info">
+                  class="btn btn-primary">
                   Guardar
                 </button>
               </div>

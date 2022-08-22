@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Xperience } from 'src/app/models/xperience';
+import { TokenService } from 'src/app/services/security/token.service';
 import { XperienceService } from 'src/app/services/xperience.service';
 
 @Component({
@@ -13,11 +14,19 @@ export class XperienceComponent implements OnInit {
 public xperiences!: Xperience[];
 public editXperience!: Xperience;
 public deleteXperience!: Xperience;
+isLogged = false;
 
-  constructor(private xperienceService: XperienceService) { }
+  constructor(
+    private xperienceService: XperienceService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getXperiences();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   getXperiences(): void {

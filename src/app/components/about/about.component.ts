@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { About } from 'src/app/models/about';
 import { AboutService } from 'src/app/services/about.service';
+import { TokenService } from 'src/app/services/security/token.service';
 
 @Component({
   selector: 'app-about',
@@ -11,11 +12,19 @@ import { AboutService } from 'src/app/services/about.service';
 export class AboutComponent implements OnInit {
 public abouts!: About[];
 public editAbout!: About;
+isLogged = false;
 
-  constructor(private aboutService: AboutService) { }
+  constructor(
+    private aboutService: AboutService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getAbouts();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
   getAbouts(): void{
     this.aboutService.getAbouts().subscribe(

@@ -6,7 +6,7 @@
         <div class="profileContainer main-container" *ngFor="let profile of profiles">
             <!--Button editar imagen-->
             <div class="btnEditarImg d-flex justify-content-center ">
-                <a class="nav-link btn btn-success btn-rounded btn-sm fs-6" (click)="onOpenModal(profile, 'editImg')">
+                <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editImg')" >
                     <i class="fa-solid fa-pen-to-square"></i>
                     <span class="sr-only">(current)</span>
                 </a>
@@ -18,7 +18,7 @@
                 <div class="text-box">
                     <div class="d-flex justify-content-end">
                         <!-- Button editar Nombre y apellido -->
-                        <a class="nav-link btn btn-success btn-rounded btn-sm fs-6" (click)="onOpenModal(profile, 'editNA')">
+                        <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editNA')">
                             <i class="fa-solid fa-pen-to-square"></i>
                             <span class="sr-only">(current)</span>
                         </a>
@@ -28,7 +28,7 @@
                     </h1>
                     <div class="d-flex justify-content-end">
                         <!-- Button editar profesion-->
-                        <a class="btn btn-success btn-rounded btn-sm fs-6" (click)="onOpenModal(profile, 'editPP')">
+                        <a class="btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editPP')">
                             <i class="fa-solid fa-pen-to-square"></i>
                             <span class="sr-only">(current)</span>
                         </a>
@@ -42,58 +42,7 @@
                     </h2>
                 </div>
             </div>
-            <!--table class="" *ngFor="let profile of profiles">
-                    <thead>
-                        <tr>
-                            <th>
-                                <div class="d-flex justify-content-end">
-                                    <Button editar imagen>
-                                    <a class="nav-link btn btn-success fs-3 col-1"
-                                        (click)="onOpenModal(profile, 'editImg')">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="d-flex justify-content-end">
-                                    < Button editar Nombre y apellido >
-                                    <a class="nav-link btn btn-success fs-3 col-1"
-                                        (click)="onOpenModal(profile, 'editNA')">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="p-5">
-                        <tr>
-                            <td rowspan="3" class="text-end mt-0">
-                                <img class="profilePic" src="{{profile.imgUrl}}" alt="avatar">
-                            </td>
-                            <td>
-                                <h1>{{profile.name}} {{profile.lastname}}</h1>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2> {{profile.profession1}}</h2>
-                                <br>
-                                <h2>{{profile.profession2}}</h2>
-                                <div class="d-flex justify-content-end">
-                                    < Button editar profesion>
-                                    <a class="btn btn-success btn-lg fs-3 col-1"
-                                        (click)="onOpenModal(profile, 'editPP')">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table-->
+            
             <!-- Editar imagen de perfil Modal -->
             <div class="modal fade" id="editImgProfileModal" tabindex="-1" role="dialog"
                 aria-labelledby="profileEditImgModalLabel" aria-hidden="true">
@@ -128,7 +77,7 @@
                                     <button type="button" id="" data-dismiss="modal"
                                         class="btn btn-warning">Cerrar</button>
                                     <button (click)="onUpdateProfile(editImgForm.value)" data-dismiss="modal"
-                                        class="btn btn-info">Guardar</button>
+                                        class="btn btn-primary">Guardar</button>
                                 </div>
                             </form>
                         </div>
@@ -173,7 +122,7 @@
                                     <button type="button" id="" data-dismiss="modal"
                                         class="btn btn-warning">Cerrar</button>
                                     <button (click)="onUpdateProfile(editNAForm.value)" data-dismiss="modal"
-                                        class="btn btn-info">Guardar</button>
+                                        class="btn btn-primary">Guardar</button>
                                 </div>
                             </form>
                         </div>
@@ -219,7 +168,7 @@
                                     <button type="button" id="" data-dismiss="modal"
                                         class="btn btn-warning">Cerrar</button>
                                     <button (click)="onUpdateProfile(editPPForm.value)" data-dismiss="modal"
-                                        class="btn btn-info">Guardar</button>
+                                        class="btn btn-primary">Guardar</button>
                                 </div>
                             </form>
                         </div>

@@ -5,7 +5,7 @@
             <h2 class="text-center text-primary pt-4 pb-4">Habilidades duras y blandas</h2>
             <!-- Button trigger modal -->
             <div class="d-flex justify-content-end me-4">
-                <button type="button" class="btn btn-primary btn-sm">
+                <button *ngIf="isLogged" type="button" class="btn btn-success btn-sm">
                     <a class="nav-link" (click)="onOpenModal(null!, 'add')">
                         <i class="fa-solid fa-file-circle-plus"></i> Nueva habilidad
                         <span class="sr-only">(current)</span>
@@ -25,9 +25,9 @@
                 <div class="containerCircles col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let skil of skils">
                             <div class="circlesSkils">
                             <label>{{ skil.nameS }}</label> <br>
-                            <div class="float-right btn-group btn-group-sm ">
-                                <a (click)="onOpenModal(skil, 'edit')" class="btn btn-success tooltips"
-                                    data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                            <div *ngIf="isLogged" class="float-right btn-group btn-group-sm ">
+                                <a (click)="onOpenModal(skil, 'edit')" class="btn btn-primary tooltips"
+                                    data-placement="top" data-original-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <a (click)="onOpenModal(skil, 'delete')" class="btn btn-danger tooltips"
                                     data-placement="top" data-original-title="Delete"><i class="fa fa-trash"></i></a>
                             </div>
@@ -57,17 +57,10 @@
                                             placeholder="Nombre de la habilidad" name="nameS" required>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="form-label" for="labelS">Etiqueta</label>
-                                        <input ngModel type="text" id="labelS" class="form-control"
-                                            placeholder="Etiqueta de la habilidad" name="labelS" required>
-                                    </div>
-                                    <div class="form-group mb-4">
                                         <label class="form-label" for="percentageS">Porcentaje</label>
                                         <input ngModel type="number" class="form-control" min="0" max="100"
                                             id="percentageS" placeholder="Porcentaje de conocimiento" name="percentageS"
                                             required>
-
-
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="form-label" for="logoS">Logo</label>
@@ -86,7 +79,7 @@
                                         </select>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" id="add-skil-form" class="btn btn-warning"
+                                        <button type="button" id="add-skils-form" class="btn btn-warning"
                                             data-dismiss="modal">Cerrar</button>
                                         <button [disabled]="addForm.invalid" type="submit"
                                             class="btn btn-info">Guardar</button>
@@ -118,11 +111,6 @@
                                     </div>
                                     <input type="hidden" ngModel="{{ editSkils?.id }}" name="id" class="form-control"
                                         id="id" placeholder="id" />
-                                    <div class="form-group form-outline mb-5">
-                                        <label class="form-label" for="labelS">Etiqueta</label>
-                                        <input ngModel="{{ editSkils?.labelS }}" type="text" id="labelS"
-                                            class="form-control" placeholder="Nombre de la etiqueta" name="labelS" />
-                                    </div>
                                     <div class="form-group form-outline mb-5">
                                         <label class="form-label" for="percentageS">Porcentaje</label><br>
                                         <input ngModel="{{ editSkils?.percentageS }}" type="number" id="percentageS"

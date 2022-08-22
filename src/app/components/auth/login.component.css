@@ -1,0 +1,19 @@
+div{
+    background-color: transparent;
+}
+body{
+    background-color: #323a45;
+}
+.container{
+background-color: #fff;
+border-radius: 10px;
+
+}  
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+

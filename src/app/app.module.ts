@@ -1,22 +1,30 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 // Import ng-circle-progress
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+//ruteo
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { EducationComponent } from './components/education/education.component';
 import { XperienceComponent } from './components/xperience/xperience.component';
 import { EducationService } from './services/education.service';
 import { XperienceService } from './services/xperience.service';
+import { SkilService } from './services/skil.service';
 import { SkilComponent } from './components/skil/skil.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/auth/login.component';
+import { RegisterComponent } from './components/auth/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { InterceptorService } from './services/security/interceptor.service';
+import { AuthService } from './services/security/auth.service';
+
 
 
 
@@ -31,6 +39,9 @@ import { HeaderComponent } from './components/header/header.component';
     AboutComponent,
     NavbarComponent,
     HeaderComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -53,7 +64,11 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   providers: [
     EducationService,
-    XperienceService
+    XperienceService,
+    SkilService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+    
   ],
   bootstrap: [AppComponent]
 })

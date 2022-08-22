@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Skils } from 'src/app/models/skils';
+import { TokenService } from 'src/app/services/security/token.service';
 import { SkilService } from 'src/app/services/skil.service';
 
 @Component({
@@ -13,11 +14,19 @@ export class SkilComponent implements OnInit {
   public skils!: Skils[];
   public editSkils!: Skils;
   public deleteSkil!: Skils;
+  isLogged = false;
 
-  constructor(private skilService: SkilService) { }
+  constructor(
+    private skilService: SkilService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getSkils();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   public getSkils(): void {

@@ -11,9 +11,9 @@
                 <span class="text-primary"><h5>#YOPROGRAMO</h5></span>
             </a>
             <!-- Toggler para pantallas chicas -->
-            <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#navbarMenu"
+            <button class="navbar-toggler btn btn-primary p-3 align-self-center" type="button" data-toggle="collapse" data-target="#navbarMenu"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fa-solid fa-bars-filter align-self-center"></i></span>
+                <span class="navbar-toggler-icon"><i class="fa-solid fa-bars align-self-center fs-5"></i></span>
                 <span></span>
                 <span></span>
             </button>
@@ -79,19 +79,19 @@
                             </a>
                         <li>
                         <li><hr class="dropdown-divider" /></li>
-                     <!-- boton Editar 
+                     <!-- boton Editar -->
                     <li class="nav-item d-flex flex-row-reverse pe-0 me-0">
-                        <button class="btn btn-outline-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" (click)="logIn()" *ngIf="!isLogged">
+                        <button class="btn btn-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" *ngIf="!isLogged" (click)="onLogIn()">
                             <a class="nav-link">
-                                <i class="bi bi-box-arrow-in-right"> </i> Iniciar Sesión
+                                <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
                             </a>
                         </button>
-                        <button class="btn btn-outline-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" (click)="onLogOut()" *ngIf="isLogged">
+                        <button class="btn btn-info d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" *ngIf="isLogged" (click)="onLogOut()">
                             <a class="nav-link">
-                                <i class="bi bi-x-square"> </i> Cerrar Sesión
+                                <i class="fa-solid fa-door-open"></i> Cerrar Sesión
                             </a>
                         </button>
-                    </li-->
+                    </li>
                 </ul>
             </div>
         </div>
