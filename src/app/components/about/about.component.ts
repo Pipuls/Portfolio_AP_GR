@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { About } from 'src/app/models/about';
 import { AboutService } from 'src/app/services/about.service';
 import { TokenService } from 'src/app/services/security/token.service';
@@ -17,7 +18,8 @@ isAdmin = false;
 
   constructor(
     private aboutService: AboutService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.getAbouts();
@@ -44,9 +46,12 @@ isAdmin = false;
     this.aboutService.updateAbout(about).subscribe(
       (response: About) => {
         console.log(response);
+        this.toast.info({detail:"Edición:", summary: "La descripción se actualizó correctamente", duration: 3000});
         this.getAbouts();
+        
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Error:", summary: "Ocurrió un error al actualizar la descripción", duration: 3000});
         alert(error.message);
       }
     )

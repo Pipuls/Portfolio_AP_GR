@@ -3,6 +3,10 @@
         <div class="bgimage col-12">
             <img class="imgBg" src="../../../assets/images/fondoskyLG.png" alt="ImgFondo" />
         </div>
+        <div class="alert alert-info w-80" *ngIf="!isAdmin">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Para editar el perfil debe ingresar como <em>Administrador</em>.
+        </div>
         <div class="profileContainer main-container" *ngFor="let profile of profiles">
             <!--Button editar imagen-->
             <div class="btnEditarImg d-flex justify-content-center ">
@@ -152,7 +156,7 @@
                                     <label for="profession2">Otra profesión</label>
                                     <input type="text" ngModel="{{editProfile?.profession2}}" name="profession2"
                                         class="form-control" id="profession2"
-                                        placeholder="Si lo desea puede agregar una segunda profesión">
+                                        placeholder="Coloque otra profesión">
                                 </div>
                                 <input type="hidden" ngModel="{{editProfile?.id}}" name="id" class="form-control"
                                     id="id" placeholder="id">

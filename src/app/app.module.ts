@@ -2,11 +2,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-// Import ng-circle-progress
-import { NgCircleProgressModule } from 'ng-circle-progress';
 //ruteo
 import { AppRoutingModule } from './app-routing.module';
-
+//componentes
 import { AppComponent } from './app.component';
 import { EducationComponent } from './components/education/education.component';
 import { XperienceComponent } from './components/xperience/xperience.component';
@@ -22,8 +20,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/auth/login.component';
 import { RegisterComponent } from './components/auth/register.component';
 import { HomeComponent } from './components/home/home.component';
+//servicios seguridad
 import { InterceptorService } from './services/security/interceptor.service';
 import { AuthService } from './services/security/auth.service';
+//external toast
+import { NgToastModule } from 'ng-angular-popup'
+// barra de progreso circular
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
@@ -42,11 +46,13 @@ import { AuthService } from './services/security/auth.service';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ContactComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgToastModule,
     NgCircleProgressModule.forRoot({
       radius:50,
       outerStrokeWidth:5,

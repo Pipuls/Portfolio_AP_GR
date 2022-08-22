@@ -1,0 +1,60 @@
+.contactDer {
+    margin-top: 0;
+    min-height: 500px; 
+    background-position: 0px 0px, 100% 50%;
+    background-size: cover;
+    background-attachment: scroll, scroll;
+    object-fit: cover;
+    -o-object-fit: cover;
+ }
+
+ .contact-section{
+    padding: 1rem 0rem 1rem 0rem;
+    font-size: 1.8rem;font-weight:500;
+
+ }
+ .contactIzq .parrafo{
+    margin-top: 0;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1.1rem;
+    color: #b1b4bd;
+    line-height: 1.5;
+    text-align: justify;
+
+ }
+
+ .contactoPic{
+    width: 100%;
+    padding: 6rem 0rem 0rem 0rem; 
+}
+
+.parrafo{
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: justify;
+
+}
+.left-center-part {
+   padding: 8em 5rem 0rem 5rem;
+}
+
+@media (max-width: 767px){
+    .contactoPic {
+       padding-top: 0;
+    }
+    .contactDer{
+        margin-top: 0;
+    }
+
+ }
+ @media (min-width: 768px) and (max-width: 960px){
+   .left-center-part {
+      padding: 1em 1.5em 0em 1.5em;
+   }
+ }
+
+ @media (min-width: 961px) and (max-width: 1200px){
+   .left-center-part {
+      padding: 3em 1.5em 0em 2.5em;
+   }
+ }

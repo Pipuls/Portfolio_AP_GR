@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { Profile } from 'src/app/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { TokenService } from 'src/app/services/security/token.service';
@@ -17,7 +18,8 @@ isAdmin = false
 
   constructor(
     private profileService: ProfileService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.getProfiles();
@@ -46,10 +48,13 @@ isAdmin = false
     this.profileService.updateProfile(profile).subscribe(
       (response: Profile) => {
         console.log(response);
+        this.toast.info({detail:"Edición:", summary: "El perfil se actualizó correctamente", duration: 3000});
         this.getProfiles();
+
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.toast.error({detail:"Error:", summary: "Ocurrió un error al actualizar el perfil", duration: 3000});
+        
       }
     );
   }

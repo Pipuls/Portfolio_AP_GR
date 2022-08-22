@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
 import { Xperience } from 'src/app/models/xperience';
 import { TokenService } from 'src/app/services/security/token.service';
 import { XperienceService } from 'src/app/services/xperience.service';
@@ -19,7 +20,8 @@ isAdmin = false
 
   constructor(
     private xperienceService: XperienceService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.getXperiences();
@@ -48,10 +50,12 @@ isAdmin = false
     this.xperienceService.addXperience(addForm.value).subscribe(
       (response: Xperience) => {
         console.log(response);
+        this.toast.success({detail:"Nueva Experiencia:", summary: "Agregada correctamente", duration: 3000});
         this.getXperiences();
         addForm.reset();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Nueva Experiencia:", summary: "Ocurrió un error al intentar agregar la experiencia", duration: 3000});
         alert(error.message);
         addForm.reset();
       }
@@ -62,9 +66,11 @@ isAdmin = false
     this.xperienceService.updateXperience(xperience).subscribe(
       (response: Xperience) => {
         console.log(response);
+        this.toast.info({detail:"Editar Experiencia:", summary: "Los cambios se guardaron correctamente", duration: 3000});
         this.getXperiences();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Editar Experiencia:", summary: "Ocurrió un error al intentar editar la experiencia", duration: 3000});
         alert(error.message);
       }
     );
@@ -74,9 +80,11 @@ isAdmin = false
     this.xperienceService.deleteXperience(xperienceId).subscribe(
       (response: void) => {
         console.log(response);
+        this.toast.warning({detail:"Eliminar Experiencia:", summary: "La experiencia a sido eliminada", duration: 3000});
         this.getXperiences();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Eliminar Experiencia:", summary: "Ocurrió un error al intentar eliminar la experiencia", duration: 3000});
         alert(error.message);
       }
     );

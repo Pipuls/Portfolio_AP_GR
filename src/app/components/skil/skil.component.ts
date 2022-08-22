@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
 import { Skils } from 'src/app/models/skils';
 import { TokenService } from 'src/app/services/security/token.service';
 import { SkilService } from 'src/app/services/skil.service';
@@ -16,14 +17,18 @@ export class SkilComponent implements OnInit {
   public deleteSkil!: Skils;
   roles!: string[];
   isAdmin = false
+  isLogged = false
 
   constructor(
     private skilService: SkilService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private toast: NgToastService
+    ) { }
 
   ngOnInit(): void {
     this.getSkils();
     this.roles = this.tokenService.getAuthorities();
+    this.isLogged = true;
     this.roles.forEach(rol =>{
       if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
@@ -48,10 +53,12 @@ export class SkilComponent implements OnInit {
     this.skilService.addSkil(addForm.value).subscribe(
       (response: Skils) => {
         console.log(response);
+        this.toast.success({detail:"Nueva Habilidad:", summary: "Agregada correctamente", duration: 3000});
         this.getSkils();
         addForm.reset();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Nueva Habilidad:", summary: "Ocurrió un error al intentar agregar la habilidad", duration: 3000});
         alert(error.message);
         addForm.reset();
       }
@@ -62,9 +69,11 @@ export class SkilComponent implements OnInit {
     this.skilService.updateSkil(skils).subscribe(
       (response: Skils) => {
         console.log(response);
+        this.toast.info({detail:"Editar Habilidad:", summary: "Los cambios se guardaron correctamente", duration: 3000});
         this.getSkils();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Editar Habilidad:", summary: "Ocurrió un error al intentar editar la habilidad", duration: 3000});
         alert(error.message);
       }
     );
@@ -75,9 +84,11 @@ export class SkilComponent implements OnInit {
     this.skilService.deleteSkil(skilsId).subscribe(
       (response: void) => {
         console.log(response);
+        this.toast.warning({detail:"Eliminar Habilidad:", summary: "La habilidad a sido eliminada", duration: 3000});
         this.getSkils();
       },
       (error: HttpErrorResponse) => {
+        this.toast.error({detail:"Eliminar Habilidad:", summary: "Ocurrió un error al intentar eliminar la habilidad", duration: 3000});
         alert(error.message);
       }
     );

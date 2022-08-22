@@ -1,9 +1,7 @@
 <body>
     <section class="vh-100 p-5">
         <div class="text-center" *ngIf="isLogged; else loggedOut">
-            <div class="alert alert-success" role="alert">
-                Has iniciado session correctamente!
-            </div>
+ 
         </div>
         <ng-template #loggedOut>
             <div class="container p-5 h-100 shadow">
@@ -46,9 +44,6 @@
                                      Iniciar sesión
                                 </button>
                         </form>
-                        <div *ngIf="f.submitted && isLogginFail" class="alert alert-danger mt-3">
-                            Error de autenticación: {{errMsg}}
-                        </div>
                     </div>
                 </div>
             </div>
