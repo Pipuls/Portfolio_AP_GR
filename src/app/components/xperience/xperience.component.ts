@@ -14,8 +14,7 @@ export class XperienceComponent implements OnInit {
 public xperiences!: Xperience[];
 public editXperience!: Xperience;
 public deleteXperience!: Xperience;
-roles!: string[];
-isAdmin = false
+isLogged = false;
 
   constructor(
     private xperienceService: XperienceService,
@@ -23,12 +22,11 @@ isAdmin = false
 
   ngOnInit(): void {
     this.getXperiences();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol =>{
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   getXperiences(): void {

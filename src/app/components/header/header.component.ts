@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { Profile } from 'src/app/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { TokenService } from 'src/app/services/security/token.service';
@@ -13,26 +12,19 @@ import { TokenService } from 'src/app/services/security/token.service';
 export class HeaderComponent implements OnInit {
 public profiles!: Profile[];
 public editProfile!: Profile;
-roles!: string[];
-isAdmin = false
+isLogged = false;
 
   constructor(
     private profileService: ProfileService,
-    private tokenService: TokenService,
-    private toastr: ToastrService) { }
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getProfiles();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol =>{
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      } else if (rol === 'ROLE_USer') {
-        this.toastr.success('Para editar el perfil debe ingresar como Administrador', 'OK',{
-            timeOut: 13000
-          });
-      }
-    });
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   getProfiles(): void {
