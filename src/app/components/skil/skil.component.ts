@@ -14,7 +14,8 @@ export class SkilComponent implements OnInit {
   public skils!: Skils[];
   public editSkils!: Skils;
   public deleteSkil!: Skils;
-  isLogged = false;
+  roles!: string[];
+  isAdmin = false
 
   constructor(
     private skilService: SkilService,
@@ -22,11 +23,12 @@ export class SkilComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSkils();
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol =>{
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   public getSkils(): void {

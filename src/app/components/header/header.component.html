@@ -6,7 +6,7 @@
         <div class="profileContainer main-container" *ngFor="let profile of profiles">
             <!--Button editar imagen-->
             <div class="btnEditarImg d-flex justify-content-center ">
-                <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editImg')" >
+                <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isAdmin" (click)="onOpenModal(profile, 'editImg')" >
                     <i class="fa-solid fa-pen-to-square"></i>
                     <span class="sr-only">(current)</span>
                 </a>
@@ -18,7 +18,7 @@
                 <div class="text-box">
                     <div class="d-flex justify-content-end">
                         <!-- Button editar Nombre y apellido -->
-                        <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editNA')">
+                        <a class="nav-link btn btn-primary btn-sm fs-6" *ngIf="isAdmin" (click)="onOpenModal(profile, 'editNA')">
                             <i class="fa-solid fa-pen-to-square"></i>
                             <span class="sr-only">(current)</span>
                         </a>
@@ -28,7 +28,7 @@
                     </h1>
                     <div class="d-flex justify-content-end">
                         <!-- Button editar profesion-->
-                        <a class="btn btn-primary btn-sm fs-6" *ngIf="isLogged" (click)="onOpenModal(profile, 'editPP')">
+                        <a class="btn btn-primary btn-sm fs-6" *ngIf="isAdmin" (click)="onOpenModal(profile, 'editPP')">
                             <i class="fa-solid fa-pen-to-square"></i>
                             <span class="sr-only">(current)</span>
                         </a>

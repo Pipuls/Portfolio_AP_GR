@@ -23,7 +23,7 @@
                                     <td>
                                         <!-- Button editar descripcion -->
                                         <div class="text-end m-2">
-                                            <a *ngIf="isLogged" (click)="onOpenModal(about, 'editAbout')"
+                                            <a *ngIf="isAdmin" (click)="onOpenModal(about, 'editAbout')"
                                                 class="btn btn-primary tooltips p-3" data-placement="top"
                                                 data-original-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
                                         </div>
