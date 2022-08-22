@@ -12,7 +12,8 @@ import { TokenService } from 'src/app/services/security/token.service';
 export class AboutComponent implements OnInit {
 public abouts!: About[];
 public editAbout!: About;
-isLogged = false;
+roles!: string[];
+isAdmin = false;
 
   constructor(
     private aboutService: AboutService,
@@ -20,11 +21,12 @@ isLogged = false;
 
   ngOnInit(): void {
     this.getAbouts();
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol =>{
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   getAbouts(): void{
     this.aboutService.getAbouts().subscribe(

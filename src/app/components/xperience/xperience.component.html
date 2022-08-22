@@ -5,7 +5,7 @@
             <h2 class="text-center text-primary pt-4 pb-4">Experiencia Laboral</h2>
             <!-- Button trigger modal -->
             <div class="d-flex justify-content-end me-4">
-                <button type="button" class="btn btn-success btn-sm"  *ngIf="isLogged">
+                <button type="button" class="btn btn-success btn-sm"  *ngIf="isAdmin">
                     <a class="nav-link" (click)="onOpenModal(null!, 'add')">
                         <i class="fa-solid fa-file-circle-plus"></i> Nueva experiencia
                         <span class="sr-only">(current)</span>
@@ -38,12 +38,12 @@
                                         <br>
                                         <span class="m-2 p-2 bg-info badge rounded-pill">{{ xperience.yearX }}</span>
                                         <br>
-                                        <div class="btn-group">
-                                            <a *ngIf="isLogged" (click)="onOpenModal(xperience, 'edit')" class="btn btn-primary btn-sm tooltips"
+                                        <div class="btn-group" *ngIf="isAdmin">
+                                            <a (click)="onOpenModal(xperience, 'edit')" class="btn btn-primary btn-sm tooltips"
                                                 data-placement="top" data-original-title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a *ngIf="isLogged" (click)="onOpenModal(xperience, 'delete')"
+                                            <a (click)="onOpenModal(xperience, 'delete')"
                                                 class="btn btn-danger btn-sm tooltips" data-placement="top"
                                                 data-original-title="Delete"><i class="fa fa-trash"></i></a>
                                         </div>
