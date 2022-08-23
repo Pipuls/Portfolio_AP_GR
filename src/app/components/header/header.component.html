@@ -3,10 +3,6 @@
         <div class="bgimage col-12">
             <img class="imgBg" src="../../../assets/images/fondoskyLG.png" alt="ImgFondo" />
         </div>
-        <div class="alert alert-info w-80" *ngIf="!isAdmin">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            Para editar el perfil debe ingresar como <em>Administrador</em>.
-        </div>
         <div class="profileContainer main-container" *ngFor="let profile of profiles">
             <!--Button editar imagen-->
             <div class="btnEditarImg d-flex justify-content-center ">
