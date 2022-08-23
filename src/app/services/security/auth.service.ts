@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private apiServerUrl= environment.apiBaseUrl;
+  private apiServerUrl= 'https://portfolioapbe.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 

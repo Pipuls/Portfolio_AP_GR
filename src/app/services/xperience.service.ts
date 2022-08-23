@@ -9,7 +9,7 @@ import { Xperience } from '../models/xperience';
 })
 export class XperienceService {
 
-  private apiServerUrl= environment.apiBaseUrl;
+  private apiServerUrl= 'https://portfolioapbe.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 
