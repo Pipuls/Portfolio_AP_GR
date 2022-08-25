@@ -8,7 +8,7 @@ import { Profile } from '../models/profile';
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com/';
+  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
   
   constructor(private http: HttpClient) { }
 

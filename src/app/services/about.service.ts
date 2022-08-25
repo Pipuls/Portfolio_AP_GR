@@ -8,7 +8,7 @@ import { About } from '../models/about';
   providedIn: 'root'
 })
 export class AboutService {
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com/';
+  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
   
   constructor(private http: HttpClient) { }
 
