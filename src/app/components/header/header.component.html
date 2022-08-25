@@ -51,13 +51,13 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="profileEditImgModalLabel">Editar la imagen de perfil de
                                 {{editProfile?.name}} {{editProfile?.lastname}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form #editImgForm="ngForm">
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <label for="imgUrl">Imagen</label>
                                     <input type="text" ngModel="{{editProfile?.imgUrl}}" name="imgUrl"
                                         class="form-control" id="imgUrl" aria-describedby="imagenAvatar"
@@ -92,18 +92,18 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="profileEditNAModalLabel">Editar los datos del perfil
                                 {{editProfile?.name}} {{editProfile?.lastname}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form #editNAForm="ngForm">
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <label for="name">Nombre</label>
                                     <input type="text" ngModel="{{editProfile?.name}}" name="name" class="form-control"
                                         id="name" placeholder="Ingrese su nombre">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <label for="name">Apellido/s</label>
                                     <input type="text" ngModel="{{editProfile?.lastname}}" name="lastname"
                                         class="form-control" id="lastname" placeholder="Ingrese su/s apellido/s">
@@ -137,18 +137,18 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="profileEditPPModalLabel">Editar la profesión del perfil
                                 {{editProfile?.name}} {{editProfile?.lastname}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form #editPPForm="ngForm">
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <label for="name">Profesión</label>
                                     <input type="text" ngModel="{{editProfile?.profession1}}" name="profession1"
                                         class="form-control" id="profession1" placeholder="Ingrese su profesión">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <label for="profession2">Otra profesión</label>
                                     <input type="text" ngModel="{{editProfile?.profession2}}" name="profession2"
                                         class="form-control" id="profession2"

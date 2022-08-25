@@ -69,33 +69,33 @@
                 <h5 class="modal-title" id="addEducationModalLabel">
                   Agregar educación
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                  <span aria-hidden="true">&times;</span>
+                <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                  <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                 </button>
               </div>
               <div class="modal-body">
                 <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
-                  <div class="form-group">
+                  <div class="form-group mb-4">
                     <label for="titleE">Título</label>
                     <input ngModel type="text" id="titleE" class="form-control" placeholder="Nombre del título obtenido"
                       name="titleE" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-4">
                     <label for="institutionE">Institución</label>
                     <input ngModel type="text" id="institutionE" class="form-control"
                       placeholder="Nombre de la institución" name="institutionE" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-4">
                     <label for="placeE">Lugar</label>
                     <input ngModel type="text" id="placeE" class="form-control"
                       placeholder="Ciudad o plataforma en la que se realizó el estudio" name="placeE" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-4">
                     <label for="yearE">Año</label>
                     <input ngModel type="text" id="yearE" class="form-control"
                       placeholder="Año/s en los que se realizó el estudio" name="yearE" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-4">
                     <label for="logoE">Logo</label>
                     <input ngModel type="text" id="logoE" class="form-control" name="logoE"
                       placeholder="Ingrese la URL del logo de la institución" required>
@@ -122,35 +122,35 @@
                 <h5 class="modal-title" id="updateEducationModalLabel">
                   Editar la educación {{ editEducation?.titleE }}
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                  <span aria-hidden="true">&times;</span>
+                <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                  <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                 </button>
               </div>
               <div class="modal-body">
                 <form #editForm="ngForm">
-                  <div class="form-group form-outline mb-5 mt-3">
+                  <div class="form-group mb-4">
                     <label class="form-label" for="titleE">Título</label>
                     <input ngModel="{{ editEducation?.titleE }}" type="text" id="titleE" class="form-control"
                       placeholder="Nombre del título obtenido" name="titleE" />
                   </div>
                   <input type="hidden" ngModel="{{ editEducation?.id }}" name="id" class="form-control" id="id"
                     placeholder="id" />
-                  <div class="form-group form-outline mb-5">
+                  <div class="form-group mb-4">
                     <label class="form-label" for="institutionE">Institución</label>
                     <input ngModel="{{ editEducation?.institutionE }}" type="text" id="institutionE"
                       class="form-control" placeholder="Nombre de la institución" name="institutionE" />
                   </div>
-                  <div class="form-group form-outline mb-5">
+                  <div class="form-group mb-4">
                     <label class="form-label" for="placeE">Lugar</label>
                     <input ngModel="{{ editEducation?.placeE }}" type="text" id="placeE" class="form-control"
                       placeholder="Ciudad o plataforma en la que se realizó el estudio" name="placeE" />
                   </div>
-                  <div class="form-group form-outline mb-5">
+                  <div class="form-group mb-4">
                     <label class="form-label" for="yearE">Año</label>
                     <input ngModel="{{ editEducation?.yearE }}" type="text" id="yearE" class="form-control"
                       placeholder="Año/s en los que se realizó el estudio" name="yearE" />
                   </div>
-                  <div class="form-group form-outline mb-5">
+                  <div class="form-group mb-4">
                     <label class="form-label" for="logoE">Logo</label>
                     <input ngModel="{{ editEducation?.logoE }}" type="text" id="logoE" class="form-control" name="logoE"
                       placeholder="Ingrese la URL del logo de la institución" />
@@ -178,8 +178,8 @@
                 <h5 class="modal-title" id="deleteEducationModalLabel">
                   Borrar educación
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                  <span aria-hidden="true">&times;</span>
+                <button type="button" class="btn btn-bs-light" data-dismiss="modal" aria-label="Cerrar">
+                  <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                 </button>
               </div>
               <div class="modal-body">
