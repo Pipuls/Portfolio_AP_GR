@@ -8,7 +8,7 @@ import { Skils } from '../models/skils';
   providedIn: 'root'
 })
 export class SkilService {
-  private apiServerUrl= 'https://apportfoliogr.herokuapp.com';
+  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
