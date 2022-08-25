@@ -35,3 +35,9 @@ a {
         object-position: end;
     }
 }
+
+@media (max-width: 560px){
+    table{
+        max-width: 0.8vw
+    }
+}

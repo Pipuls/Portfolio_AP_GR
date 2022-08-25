@@ -71,22 +71,22 @@
                             <div class="modal-body">
                                 <form #addForm="ngForm" (ngSubmit)="onAddXperience(addForm)">
                                     <div class="form-group mb-4">
-                                        <label for="positionX">Posición</label>
+                                        <label class="form-label" for="positionX">Posición</label>
                                         <input type="text" ngModel name="positionX" class="form-control" id="positionX"
                                             placeholder="Posición desempeñada" required>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="yearX">Año</label>
+                                        <label class="form-label" for="yearX">Año</label>
                                         <input type="text" ngModel name="yearX" class="form-control" id="yearX"
                                             placeholder="Años en los que trabajó" required>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="companyX">Empresa</label>
+                                        <label class="form-label" for="companyX">Empresa</label>
                                         <input type="text" ngModel name="companyX" class="form-control" id="companyX"
                                             placeholder="Empresa o institucion en la que trabajó" required>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="descriptionX">Descripción</label>
+                                        <label class="form-label" for="descriptionX">Descripción</label>
                                         <textarea type="text" ngModel name="descriptionX" class="form-control"
                                             id="descriptionX" placeholder="Descripción del trabajo desempeñado"
                                             required></textarea>
@@ -116,8 +116,8 @@
                             </div>
                             <div class="modal-body">
                                 <form #editForm="ngForm">
-                                    <div class="form-group">
-                                        <label for="positionX">Posición</label>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label" for="positionX">Posición</label>
                                         <input type="text" ngModel="{{editXperience?.positionX}}" name="positionX"
                                             class="form-control" id="positionX" aria-describedby="emailHelp"
                                             placeholder="Posición desempeñada">
@@ -125,18 +125,18 @@
                                     <input type="hidden" ngModel="{{editXperience?.id}}" name="id" class="form-control"
                                         id="id" placeholder="id">
                                     <div class="form-group mb-4">
-                                        <label for="yearX">Año</label>
+                                        <label class="form-label" for="yearX">Año</label>
                                         <input type="text" ngModel="{{editXperience?.yearX}}" name="yearX"
                                             class="form-control" id="yearX" placeholder="Años en los que trabajó">
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="companyX">Empresa</label>
+                                        <label class="form-label" for="companyX">Empresa</label>
                                         <input type="text" ngModel="{{editXperience?.companyX}}" name="companyX"
                                             class="form-control" id="companyX"
                                             placeholder="Empresa o institucion en la que trabajó">
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="descriptionX">Descripción</label>
+                                        <label class="form-label" for="descriptionX">Descripción</label>
                                         <textarea type="text" ngModel="{{editXperience?.descriptionX}}"
                                             name="descriptionX" class="form-control" id="descriptionX"
                                             placeholder="Descripción del trabajo desempeñado"></textarea>
