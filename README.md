@@ -33,3 +33,6 @@ Actualmente se encuentra subida a la web la <em>version 2.0</em> del porfolio, c
    <li> Suite Adobe - Illustrator 2020 ( https://www.adobe.com/ ): versión 24.1.1 </li>
    <li> Suite Adobe - Lightroom Classic ( https://www.adobe.com/ ): versión 11.0.1 </li>
 </ul>
+
+<h3>Logos imagenes y fotografias</h3>
+<p> Todas las imagenes en la web son de mi autoría, las fotografias del background de los distintos componentes fueron tomadas con mi celular Motorola One Action y luego procesadas en el software mencionado. Los logos/íconos de las empresas utilizados en los componentes pertenecen a las mismas y son de su autoría.</p>
