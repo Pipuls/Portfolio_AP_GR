@@ -23,18 +23,18 @@
             <!-- Tabla con experiencias -->
             <div class="container" id="main-container">
                 <div class="row">
-                    <div class="col-lg-12 shadow">
-                        <table class="table align-middle table-responsive">
-                            <thead class="bg-info">
+                    <div class="table-responsive col-lg-12 shadow">
+                        <table class="table align-middle">
+                            <thead class="bg-light text-primary">
                                 <tr>
                                     <th>Puesto</th>
                                     <th>Empresa</th>
                                     <th>Descripción</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-dark text-primary">
+                            <tbody class="bg-dark">
                                 <tr class="text-light" *ngFor="let xperience of xperiences">
-                                    <td class="text-primary fs-5 fw-bold"> {{ xperience.positionX }}
+                                    <td class="text-primary fs-6 fw-bold"> {{ xperience.positionX }}
                                         <br>
                                         <span class="m-2 p-2 bg-info badge rounded-pill">{{ xperience.yearX }}</span>
                                         <br>
