@@ -1,10 +1,19 @@
-# PortfolioAPGR
+<h1>FrontEnd Repository</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+<p>FrontEnd del portfolio personal que integra los conocimientos adquiridos en el curso de desarrollador Full Stak jr de <strong><em>Argentina Programa</em></strong>.
+<br>
+<br>
+Creado con las herramientas proporcionadas en el mismo mas los conocimientos previos de diseño y busquedas en la web.
+Este repositorio de FrontEnd se complementa con la base de datos alojada en https://clever-cloud.com y el BackEnd ( https://github.com/Pipuls/Portfolio_AP_GR_BE ) el cual cuenta con el <em>CRUD</em> necesario para realizar las peticiones y la seguridad para el correcto funcionamiento del LogIn.
+<br>
+<br>
+Actualmente se encuentra subida a la web la <em>version 2.0</em> del porfolio, con ideas de seguir completandolo y agregando algunas mejoras y funciones para el futuro. </p>
 
-## Development server
+<h3>Tecnologías utilizadas:</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El proyecto fue creado con [Angular CLI]( https://github.com/angular/angular-cli ): version 14.1.2.
+
+Se encuentra subido a [Firebase] ( https://portfolioapger.web.app/ )
 
 ## Code scaffolding
 
