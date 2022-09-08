@@ -25,3 +25,12 @@ hr {
     border-width: 1px;
     color: #fff;
 }
+
+.final-footer{
+    overflow: hidden;
+}
+
+.footer-redes, .footer-mail, .footer-telegram {
+    float: left;
+    
+}

@@ -21,10 +21,11 @@
     margin:0;
     padding: 0;
 }
-label {
+.circle-label {
     text-align: center;
     color: rgb(128, 172, 238);
     font-weight:bold; 
+    font-size: 0.9rem;
 }
 #circles {
     padding: 2rem 2rem;
@@ -41,7 +42,8 @@ label {
 .containerCircles{
     margin: 0 auto;
     padding: 0;
-    display: inline-block;  
+    display: inline-block; 
+    -moz-box-align: center; 
 }
 .circlesSkils{
   margin: 0;
