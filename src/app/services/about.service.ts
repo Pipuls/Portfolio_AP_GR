@@ -8,8 +8,8 @@ import { About } from '../models/about';
   providedIn: 'root'
 })
 export class AboutService {
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
-  
+  private apiServerUrl= 'https://portfolioberw-production.up.railway.app';
+
   constructor(private http: HttpClient) { }
 
   public getAbouts(): Observable<About[]>{

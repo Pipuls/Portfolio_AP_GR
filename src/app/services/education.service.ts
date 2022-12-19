@@ -10,8 +10,8 @@ import { Education } from '../models/education';
 })
 export class EducationService {
 
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
-  
+  private apiServerUrl= 'https://portfolioberw-production.up.railway.app';
+
   constructor(private http: HttpClient) { }
 
   public getEducations(): Observable<Education[]>{

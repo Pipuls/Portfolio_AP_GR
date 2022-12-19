@@ -1,7 +1,7 @@
 .columnaIzq {
     margin-top: 2em;
     min-height: 500px; 
-    background-image: url('../../../assets/images/about.jpg');
+    background-image: url('../../../assets/images/about.webp');
     transition: width 2s, height 10s;
     background-position: 0px 0px, 100% 50%;
     background-size: cover;

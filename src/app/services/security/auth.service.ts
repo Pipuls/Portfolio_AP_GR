@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
+  private apiServerUrl= 'https://portfolioberw-production.up.railway.app';
 
   constructor(private http: HttpClient) { }
 

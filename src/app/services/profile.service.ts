@@ -8,8 +8,8 @@ import { Profile } from '../models/profile';
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiServerUrl= 'https://potfolioapgrhk.herokuapp.com';
-  
+  private apiServerUrl= 'https://portfolioberw-production.up.railway.app';
+
   constructor(private http: HttpClient) { }
 
   public getProfiles(): Observable<Profile[]> {
